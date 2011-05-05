@@ -1,0 +1,48 @@
+[labels]
+FT232RL
+refdes=U?
+! copyright=2011 Gavin Hurlbut
+! author=Gavin Hurlbut
+! uselicense=unlimited
+! distlicense=GPL
+! device=FT232RL
+! description=USB UART
+! footprint=SSOP28
+
+[left]
+4 VCCIO
+20 VCC
+16 USBDM
+15 USBDP
+
+8 NC
+19 \_RESET\_
+24 NC
+27 OSCI
+28 OSCO
+
+17 3V3OUT
+
+[bottom]
+
+25 AGND
+7 GND
+18 GND
+21 GND
+26 TEST
+
+[right]
+
+1 TXD
+5 RXD
+3 \_RTS\_
+11 \_CTS\_
+2 \_DTR\_
+9 \_DSR\_
+10 \_DCD\_
+6 \_RI\_
+23 CBUS0
+22 CBUS1
+13 CBUS2
+14 CBUS3
+12 CBUS4
