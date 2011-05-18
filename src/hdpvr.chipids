@@ -1,0 +1,4 @@
+# Format: One chipid per line.  Only FTDI devices listed in this file will be
+# allowed to be used for controlling HDPVR power.  This is to keep from
+# unintentionally messing with other devices using FTDI chips and frobbing their
+# GPIO lines.
