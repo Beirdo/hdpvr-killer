@@ -99,7 +99,7 @@ void probe_usb(void)
         printf("\tManufacturer (%d): %s\n"
                "\tProduct (%d): %s\n"
                "\tSerial (%d): %s\n"
-               "\tSize: %d\n", strlen(eedata.manufacturer), eedata.manufacturer, strlen(eedata.product), eedata.product, strlen(eedata.serial), eedata.serial, eedata.size);
+               "\tSize: %d\n", (int)strlen(eedata.manufacturer), eedata.manufacturer, (int)strlen(eedata.product), eedata.product, (int)strlen(eedata.serial), eedata.serial, eedata.size);
 
         ftdi_usb_close(fc);
 
