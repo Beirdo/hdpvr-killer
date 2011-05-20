@@ -61,7 +61,8 @@ struct ftdi_context *open_ftdi_usb(char *serial)
 
     fc = ftdi_new();
     retval = ftdi_usb_open_string( fc, description );
-    if( !retval ) {
+    if( retval ) {
+        printf( "Couldn't open %s\n", description );
         ftdi_free( fc );
         return( NULL );
     }
