@@ -92,7 +92,7 @@ struct ftdi_context *open_ftdi_usb(char *serial)
 void hdpvr_power(struct ftdi_context *ftdi, int on)
 {
     printf("Turning HDPVR %s\n", (on ? "on" : "off"));
-    ftdi_set_bitmode(ftdi, (on ? 0x10 : 0x11), BITMODE_CBUS);
+    ftdi_set_bitmode(ftdi, (on ? 0xF0 : 0xFF), BITMODE_CBUS);
 }
 
 int main(int argc, char **argv)
