@@ -1,0 +1,43 @@
+Run make, then sudo make install.  This will install into /usr/local/bin, and
+put the chipid config file in /etc.
+
+After this, run ftdi-probe to get the serial number.  Please be sure to find
+one that matches the pattern of:
+0:	manufacturer: GJH, description: HDPVR Killer Device v1.0, serial: GHUD9O5F
+	FTDI chipid: E623BFF1
+	EEPROM Size 128
+	08 40 03 04 01 60 00 06 A0 2D 08 00 00 00 98 08  |  .@...`...-......
+	A0 32 D2 12 AA AA 00 00 08 03 47 00 4A 00 48 00  |  .2........G.J.H.
+	32 03 48 00 44 00 50 00 56 00 52 00 20 00 4B 00  |  2.H.D.P.V.R. .K.
+	69 00 6C 00 6C 00 65 00 72 00 20 00 44 00 65 00  |  i.l.l.e.r. .D.e.
+	76 00 69 00 63 00 65 00 20 00 76 00 31 00 2E 00  |  v.i.c.e. .v.1...
+	30 00 12 03 47 00 48 00 55 00 44 00 39 00 4F 00  |  0...G.H.U.D.9.O.
+	35 00 46 00 00 00 00 00 00 00 00 00 00 00 00 00  |  5.F.............
+	00 00 00 00 00 00 00 00 00 00 00 00 00 00 71 EB  |  ..............q.
+	VendorID: 0403, ProductID: 6001, self-powered: 0, remote wakeup: 1
+	ChipType: 0, InIso: 0, OutIso: 0, SuspPullDown: 0, UseSerial: 1
+	FakeVersion: 0, USBVersion: 0, MaxPwr: 45
+	Manufacturer (3): GJH
+	Product (24): HDPVR Killer Device v1.0
+	Serial (8): GHUD9O5F
+	Size: 0
+
+
+For testing, you can do:
+
+hdpvr-power SERIAL# off
+then
+hdpvr-power SERIAL# on
+
+Of course, put in your serial number from the output above (in my case above
+it would be GHUD9O5F).
+
+Finally, you can use the find-zero-byte.pl with mythtv to catch the zero byte
+files and power cycle the HDPVR.  You will need to edit it to change the 
+%hdpvrs hash to contain your HDPVR devices and the corresponding serial number 
+for the device that will power cycle each.  The cardids can be found in mythweb
+on the status page.
+
+The find-zero-byte.pl script is designed to be run by the backend as an event 
+script triggered by the "EventCmdRecStarted" event with the parameters:
+/usr/local/bin/find-zero-byte.pl %CARDID% %CHANID% %STARTTIMEISO%
