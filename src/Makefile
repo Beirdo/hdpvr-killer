@@ -21,6 +21,7 @@ INSTALL = /usr/bin/install
 LDFLAGS = -lftdi
 CFLAGS  = -O3 -g -Wall -Werror
 SOURCES = ftdi-probe.c hdpvr-power.c
+SCRIPTS = find-zero-byte.pl
 OBJS    = ${SOURCES:%.c=%.o}
 BINS	= ${SOURCES:%.c=%}
 
@@ -33,6 +34,7 @@ clean:
 	${RM} ${BINS} ${OBJS}
 
 install:	all hdpvr.chipids
-	${INSTALL} -m 755 ${BINS} /usr/local/bin
+	${INSTALL} -m 4755 ${BINS} /usr/local/bin
+	${INSTALL} -m 755 ${SCRIPTS} /usr/local/bin
 	${INSTALL} -m 644 hdpvr.chipids /etc
 
