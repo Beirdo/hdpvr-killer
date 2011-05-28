@@ -1,6 +1,16 @@
 Run make, then sudo make install.  This will install into /usr/local/bin, and
 put the chipid config file in /etc.
 
+You need to make sure that the ftdi_sio driver has not claimed this particular
+device.  There may be a nice way to do it only for a particular instance, but
+I do not know of one, so what I have done is to blacklist the ftdi_sio driver
+completely on my backend system.  This obviously will not be too useful if you
+have other ftdi serial devices on that machine.  To do this, copy the
+blacklist-ftdi_sio.conf file into /etc/modprobe.d/ (or the equivalent) before
+plugging in the device.
+
+Plug your device into an available USB port :)
+
 After this, run ftdi-probe to get the serial number.  Please be sure to find
 one that matches the pattern of:
 0:	manufacturer: GJH, description: HDPVR Killer Device v1.0, serial: GHUD9O5F
