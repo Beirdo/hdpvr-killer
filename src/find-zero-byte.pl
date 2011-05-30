@@ -10,7 +10,7 @@ use MythTV;
 # Fill in this hash with cardid => serial number for each HDPVR, power device
 # pair.  If a zero-byte file is detected from any device in here, its power 
 # will be turned off for 15s, then back on
-my %hdpvrs = ( 32 => "GHUD9O5F" );
+my %hdpvrs = ( 32 => "GHUCYEL8" );
 
 my $Myth = new MythTV();
 
@@ -79,6 +79,12 @@ sub no_recording
 
     print "No recording for channel $chanid at $starttime\n";
     print "Recording " . ($ishdpvr ? "" : "not ") . "from HD-PVR.\n";
+
+    if ( $ishdpvr )
+    {
+        my @command = ( "hdpvr-power", $hdpvrs{$cardid}, "cycle" );
+        system @command;
+    }
 }
 
 sub zero_byte
