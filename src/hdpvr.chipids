@@ -2,11 +2,17 @@
 # allowed to be used for controlling HDPVR power.  This is to keep from
 # unintentionally messing with other devices using FTDI chips and frobbing their
 # GPIO lines.
-2623BFF1
-6723BFF1
-2723BFF1
 2423BFF1
-6523BFF1
 2523BFF1
-E623BFF1
+2623BFF1
+2723BFF1
+6523BFF1
+6723BFF1
+A423BFF1
+A523BFF1
+A623BFF1
+A723BFF1
 E423BFF1
+E523BFF1
+E623BFF1
+E723BFF1
