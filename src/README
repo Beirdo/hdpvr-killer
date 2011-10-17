@@ -51,3 +51,6 @@ on the status page.
 The find-zero-byte.pl script is designed to be run by the backend as an event 
 script triggered by the "EventCmdRecStarted" event with the parameters:
 /usr/local/bin/find-zero-byte.pl %CARDID% %CHANID% %STARTTIMEISO%
+
+Also, you should run it on the "EventCmdRecFinished" event with the parameters:
+/usr/local/bin/find-zero-byte.pl %CARDID% %CHANID% %STARTTIMEISO% cancel
