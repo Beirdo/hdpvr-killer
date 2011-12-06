@@ -1,3 +1,7 @@
+You will need to install the headers (and library) for libftdi.  Under Ubuntu
+or Debian:
+  apt-get install libftdi-dev
+
 Run make, then sudo make install.  This will install into /usr/local/bin, and
 put the chipid config file in /etc.
 
