@@ -58,7 +58,7 @@ while ((!$recording || !(exists $recording->{'local_path'}) ||
         $delay -= 5;
         if (!$delay) {
             no_recording($cardid, $chanid, $starttime);
-            cleanup(1);
+            cleanup(2);
         }
     }
 }
